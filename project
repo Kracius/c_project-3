@@ -1,0 +1,58 @@
+#include <iostream>
+#include "math.h"
+
+#define RESET  "\x1B[0m"
+#define CYAN  "\x1B[36m"
+using namespace std;
+
+int main() {
+    float first = 0, second = 0;
+    char act = 'n';
+    cout << "Действия:\n"
+            CYAN"+\n"
+            "-\n"
+            "/\n"
+            "*\n"
+            CYAN"%" << RESET << " - деление с остатком\n"
+            CYAN"s" << RESET << " - sin**\n"
+            CYAN"c" << RESET << " - cos**\n"
+            CYAN"t" << RESET << " - tan**\n"
+            CYAN"p" << RESET << " или ^ - возведение в степень\n"
+            CYAN"q" << RESET << " или v - корень**\n"
+            "\n"
+            "** - используется только первое число, второе игнорируется!" << endl;
+    cout << "Введи первое число:" << endl;
+    cin >> first;
+
+    cout << "Введи второе число:" << endl;
+    cin >> second;
+
+    cout << "Введи действие:" << endl;
+    cin >> act;
+
+    if (act == '+') {
+        cout << first << " + " << second << " = " << first + second << endl;
+    } else if (act == '-') {
+        cout << first << " - " << second << " = " << first - second << endl;
+    } else if (act == '/') {
+        cout << first << " / " << second << " = " << first / second << endl;
+    } else if (act == '*') {
+        cout << first << " * " << second << " = " << first * second << endl;
+    } else if (act == '%') {
+        cout << first << " % " << second << " = " << (int) first % (int) second << endl; //only int, baby!;
+    } else if (act == 's') {
+        cout << "sin from " << first << " = " << sinf(first) << endl;
+    } else if (act == 'c') {
+        cout << "cos from " << first << " = " << cosf(first) << endl;
+    } else if (act == 't') {
+        cout << "tan from " << first << " = " << tanf(first) << endl;
+    } else if (act == 'p' || act == '^') {
+        cout << "pow(^) from " << first << " on " << second << " = " << powf(first, second) << endl;
+    } else if (act == 'q' || act == 'v') {
+        cout << "sqrt(√) from " << first << " = " << sqrtf(first) << endl;
+    } else {
+        cout << "Завершаю работу." << endl;
+    }
+
+    return 0;
+}
